@@ -1,0 +1,93 @@
+<input type="checkbox" (change)="hide($event)" style="display:none" id="check"/>
+
+
+ 
+ 
+      <label for="check" style="width:100%">
+    <form [formGroup]="myForm">
+      <div class="d-flex  align-items-center header">
+      <div class="d-flex ">
+      <button class="header-fiter d-flex justify-content-center align-items-center">
+        <img loading="lazy" class="filter-btn" src="assets/images/filter.png" alt="filter-btn">
+        
+        <ng-select [clearable]="false" class="opt-select"  [items]="statusData"
+        bindLabel="name"
+        bindValue="value"
+        
+        formControlName="status">
+      </ng-select> 
+    </button>
+    <div  class="d-flex  align-items-center">
+      <input type="text" [value]="myForm.get('amount')?.value" formControlName="amount" placeholder="Search here" class="header-input">
+      <button (click)="showform()" type="button" class="add">Add</button>
+    </div>
+    </div>
+    </div>
+     
+    </form>
+
+
+ 
+
+<div   style="margin-top: 20px;">
+
+  <table  class="tabled ">
+    
+    <thead>
+        
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>DESCRPTION</th>
+          <th>STATUS</th>
+          <th>RATE</th>
+          <th>BALANCE</th>
+          <th>ACTION</th>
+        </tr>
+      
+      </thead> 
+    
+      <tbody>
+        <tr *ngFor="let value of dataValueOfApi | searchPipe : myForm.get('amount')?.value | dropdownPipe: myForm.get('status')?.value" >
+          <td *ngIf="value.message" >
+            {{value.message}}
+          </td>
+          <td  class="id-style">{{value.id}}</td>
+          <td class="name-style">{{value.name}}</td>
+       
+          <td class="descrption-style">{{value.descrption}}</td>
+          <!-- <td scope="row">{{value.status}}</td>   -->
+          <td class="rate-style">
+           <div class="d-flex justify-content-center" *ngIf="value.status==='Open'">
+           <span class="Open"> {{value.status}}</span> 
+          </div>
+          <div class="d-flex  justify-content-center" *ngIf="value.status==='Inactive'">
+            <span class="Inactive"> {{value.status}}</span> 
+           </div>
+           <div class="d-flex  justify-content-center"*ngIf="value.status==='Sucess'">
+            <span class="Success"> {{value.status}}</span> 
+           </div>
+           <div class="d-flex  justify-content-center" *ngIf="value.status==='Error'">
+            <span class="Error"> {{value.status}}</span> 
+           </div>
+         
+
+        </td>
+        <td class="rate-style" *ngIf="value.rate">${{value.rate}}.00</td>
+          <td class="balance-style"  *ngIf="value.balance">-${{value.balance}}.00</td>
+          
+          <td  *ngIf="value.id">
+            <div class="d-flex justify-content-center gap">
+            <button class="button-color"  (click)="edit(value.id)"><img src="assets/images/edit.png"></button>
+          <button  class="button-color"  (click)="delete(value.id)"><img src="assets/images/delete.png"></button>
+        </div>
+      </td>
+        </tr> 
+      </tbody>
+      
+    </table>
+    
+</div>
+
+  </label> 
+

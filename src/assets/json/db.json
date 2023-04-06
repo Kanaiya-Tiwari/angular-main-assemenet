@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "customer": [
+    {
+      "name": "pam",
+      "descrption": "lorem se",
+      "status": "Open",
+      "rate": "70",
+      "balance": "223333",
+      "id": 1
+    },
+    {
+      "name": "sddd ddddser",
+      "descrption": "dddds",
+      "status": "Error",
+      "rate": "5000",
+      "balance": "223333",
+      "id": 2
+    },
+    {
+      "name": "sddd ddddser",
+      "descrption": "dddd",
+      "status": "Sucess",
+      "rate": "5000",
+      "balance": "223333",
+      "id": 3
+    },
+    {
+      "name": "sddd ddddser",
+      "descrption": "dddds",
+      "status": "Sucess",
+      "rate": "50006",
+      "balance": "223333",
+      "id": 4
+    },
+    {
+      "name": "suresh raina",
+      "descrption": "Loreum ajhshsoaakjjakhkadhkajdakkjkasdkjhsajhdsadajhksadhdaskjasd",
+      "status": "Inactive",
+      "rate": "5000",
+      "balance": "33333",
+      "id": 5
+    }
+  ]
+}

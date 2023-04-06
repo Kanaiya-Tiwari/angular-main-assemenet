@@ -1,0 +1,55 @@
+<div class="form">
+<span class="add-customer">Add Customer</span>
+<form  [formGroup]="user" (ngSubmit)="loginUser()" >
+    <div class="mb-3">
+  <label id="fname" class="form-label">NAME</label>
+  <input type="text" class="form-control"   id="name" formControlName="name"   placeholder="Enter name">
+  <div class="form-text" *ngIf="user.get('name').invalid &&   user.get('name').touched">
+  Name is required
+  </div>
+  </div>
+  <div class="mb-3">
+  <label id="lname" class="form-label">DESCRIPTION</label>
+  <input type="text" id="descrption"  class="form-control" formControlName="descrption"   placeholder="Enter Descrption">
+  <div class="form-text"  *ngIf=" user.get('descrption').invalid &&   user.get('descrption').touched">
+    DESCRIPTION is required
+  </div>
+  </div>  
+  <div class="mb-3">
+  <label id="status" class="form-label" >STATUS</label>
+
+   <ng-select [items]="statusData"
+  bindLabel="name"
+  bindValue="value"
+ [clearable]="false"
+  formControlName="status">
+</ng-select> 
+  
+  <div class="form-text" *ngIf=" user.get('status').touched && user.get('status').invalid">
+    STATUS is required
+  
+  </div>
+  </div> 
+  
+  <div class="mb-3">
+    <label id="price"  class="form-label">RATE</label>
+  <input type="text" id="rate"  class="form-control" formControlName="rate"  placeholder="Enter RATE">
+  <div class="form-text" *ngIf="user.get('rate').errors?.['pattern'] " >
+    RAte should be is number
+  </div>
+  </div>
+  <div class="mb-3">
+    <label id="price"  class="form-label">BALANCE</label>
+  <input type="text" id="price"  class="form-control" formControlName="balance" placeholder="Enter Balance">
+  <div class="form-text" *ngIf=" user.get('balance').errors?.['pattern']  "  >
+    Balance should be is number
+  </div>
+  </div>
+ 
+  <div class="d-flex justify-content-center button">
+    <button type="button" (click)="cancel()" class="btn btn-secondary" >Cancel</button>
+  <button type="submit"  class="btn btn-primary"[disabled]="!user.valid || disabledFlag1" #myDOMElement >Submit</button>
+  
+</div>
+  </form>
+</div>

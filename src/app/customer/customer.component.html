@@ -1,0 +1,3 @@
+<app-customer-list [dataValueOfApi]="dataValueOfApi" (onChange)="getid($event)" ></app-customer-list>
+
+<app-customer-form *ngIf="show" (onClick)="getdata($event)" [updateddata]="updateddata"></app-customer-form>
