@@ -22,11 +22,11 @@ export class SearchPipePipe implements PipeTransform {
         return data;
        
      })
-     if(datavalue){
+     if(datavalue.length===0){
       
       // datavalue={message:"No record found"};
-      console.log(datavalue.length===0);
-      datavalue.length=0;
+    
+      // datavalue.length=0;
      datavalue.push({message:"No record found"})
      return datavalue
     } 
