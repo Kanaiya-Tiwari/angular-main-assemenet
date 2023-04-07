@@ -18,7 +18,7 @@ export class CustomerListComponent {
       { name: 'Open',value:'Open'},
       {name: 'Error',value:'Error'},
       { name: 'Inactive',value:'Inactive'},
-      {name: 'Sucess',value:'Inactive'}
+      {name: 'Sucess',value:'Sucess'}
   
 ];
   constructor(builder: FormBuilder ) {
